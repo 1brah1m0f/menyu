@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sambal Restoranı - Lüks Dad Təcrübəsi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --gold: #D4AF37;
+            --dark-gold: #B8860B;
+            --black: #121212;
+            --dark-gray: #1E1E1E;
+            --light-gray: #F5F5F5;
+            --white: #FFFFFF;
+        }
+
+        body {
+            background-color: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: rgba(18, 18, 18, 0.95);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        /* Page Content */
+        .page {
+            display: none;
+            min-height: 70vh;
+            padding: 60px 0;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 70vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            max-width: 600px;
+            margin: 0 auto;
+            color: var(--white);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--black);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 30px;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--dark-gold);
+            transform: translateY(-3px);
+        }
+
+        /* Menu Section */
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--gold);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 3px;
+            background: var(--gold);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .menu-category {
+            margin-bottom: 60px;
+        }
+
+        .category-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .category-title i {
+            font-size: 1.8rem;
+            margin-right: 15px;
+            color: var(--gold);
+        }
+
+        .category-title h3 {
+            font-size: 1.8rem;
+            color: var(--gold);
+        }
+
+        .menu-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .menu-item {
+            background-color: var(--dark-gray);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .item-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .item-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .item-price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--gold);
+            margin-left: 10px;
+            white-space: nowrap;
+        }
+
+        .item-description {
+            color: #CCCCCC;
+            font-size: 0.95rem;
+            margin-top: 5px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: flex;
+            gap: 50px;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .contact-details {
+            margin-bottom: 30px;
+        }
+
+        .contact-details p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-details i {
+            margin-right: 10px;
+            color: var(--gold);
+            width: 20px;
+        }
+
+        .map {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .map iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark-gray);
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .footer-links li {
+            margin: 0 15px;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        .copyright {
+            color: #AAAAAA;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+            }
+
+            .nav-links {
+                margin-top: 20px;
+            }
+
+            .nav-links li {
+                margin: 0 10px;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+
+            .menu-items {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content, .contact-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">Sambal</a>
+            <ul class="nav-links">
+                <li><a href="#" data-page="home">Ana səhifə</a></li>
+                <li><a href="#" data-page="menu">Menyu</a></li>
+                <li><a href="#" data-page="about">Haqqımızda</a></li>
+                <li><a href="#" data-page="contact">Əlaqə</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <section id="home" class="page active">
+        <div class="hero">
+            <div class="hero-content">
+                <h1>Sambal Restoranı</h1>
+                <p>Dadın zirvəsində!</p>
+                <a href="#" class="btn" data-page="menu">Menyunu Kəşf Edin</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Page -->
+    <section id="menu" class="page">
+        <div class="container">
+            <div class="section-title">
+                <h2>Menyumuz</h2>
+            </div>
+
+            <!-- İçkilər -->
+            <div class="menu-category">
+                <div class="category-title">
+                    <i class="fas fa-glass-cheers"></i>
+                    <h3>İçkilər</h3>
+                </div>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <div class="item-content">
+                            <div class="item-header">
+                                <h4 class="item-name">Tropik Günəş</h4>
+                                <span class="item-price">7 AZN</span>
+                            </div>
+                            <p class="item-description">Manqo, ananas və kokosun ekzotik harmoniya</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-content">
+                            <div class="item-header">
+                                <h4 class="item-name">Nanəli Mojito</h4>
+                                <span class="item-price">6 AZN</span>
+                            </div>
+                            <p class="item-description">Alkoholsuz, təravətli nanə və limonun birləşməsi</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-content">
+                            <div class="item-header">
+                                <h4 class="item-name">Qazlı su</h4>
+                                <span class="item-price">2 AZN</span>
+                            </div>
+                            <p class="item-description">Təbii mineral su</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-content">
+                            <div class="item-header">
+                                <h4 class="item-name">Klassik Kola</h4>
+                                <span class="item-price">3 AZN</span>
+                            </div>
+                            <p class="item-description">Ənənəvi dad</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kofelər və İsti İçkilər -->
+            <div class="menu-category">
+                <div class="category-title">
+                    <i class="fas fa-coffee"></i>
+                    <h3>Kofelər və İsti İçkilər</h3>
+                </div>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <div class="item-content">
+                            <div class="item-header">
+                                <h4 class="item-name">Espresso</h4>
+                                <span class="item-price">4 AZN</span>
+                            </div>
+                            <p class="item-description">Sıx, zəngin və intensiv qəhvə təcrübəsi</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-content">
+                            <div class="item-header">
+                                <h4 class="item-name">Kapuçino</h4>
+                                <span class="item-price">5 AZN</span>
+                            </div>
+                            <p class="item-description">Qəhvə, isti süd və süd köpüyünün mükəmməl balansı</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-content">
+                            <div class="item-header">
+                                <h4 class="item-name">Karamelli Latte</h4>
+                                <span class="item-price">6 AZN</span>
+                            </div>
+                            <p class="item-description">Yumşaq espresso, buxarda qızdırılmış süd və karamel sousu</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-content">
+                            <div class="item-header">
+                                <h4 class="item-name">Türk qəhvəsi</h4>
+                                <span class="item-price">5 AZN</span>
+                            </div>
+                            <p class="item-description">Ənənəvi üsulla hazırlanmış, zəngin aromalı qəhvə</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-content">
+                            <div class="item-header">
+                                <h4 class="item-name">Yaşıl çay</h4>
+                                <span class="item-price">4 AZN</span>
+                            </div>
+                            <p class="item-description">Sakitləşdirici və antioxidant xüsusiyyətləri olan yüksək keyfiyyətli çay</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- İsti Yeməklər -->
+            <div class="menu-category">
+                <div class="category-title">
+                    <i class="fas fa-utensils"></i>
+                    <h3>İsti Yeməklər</h3>
+                </div>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <div class="item-content">
+                            <div class="item-header">
+                                <h4 class="item-name">Toyuqlu risotto</h4>
+                                <span class="item-price">18 AZN</span>
+                            </div>
+                            <p class="item-description">Kremli arborio düyüsü, qril toyuq və parmezan pendiri</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-content">
+                            <div class="item-header">
+                                <h4 class="item-name">Dana ətindən biftek</h4>
+                                <span class="item-price">32 AZN</span>
+                            </div>
+                            <p class="item-description">Premium dana ətindən, seçdiyiniz dərəcədə hazırlanır</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-content">
+                            <div class="item-header">
+                                <h4 class="item-name">Qrildə qızardılmış somon</h4>
+                                <span class="item-price">26 AZN</span>
+                            </div>
+                            <p class="item-description">Təzə somon balığı, limon sousu və qril tərəvəzlərlə</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-content">
+                            <div class="item-header">
+                                <h4 class="item-name">Ev üsulu kotlet</h4>
+                                <span class="item-price">16 AZN</span>
+                            </div>
+                            <p class="item-description">Ənənəvi reseptə görə hazırlanmış, qızardılmış toyuq kotlet</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Soyuq Yeməklər və Salatlar -->
+            <div class="menu-category">
+                <div class="category-title">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Soyuq Yeməklər və Salatlar</h3>
+                </div>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <div class="item-content">
+                            <div class="item-header">
+                                <h4 class="item-name">Sezar salatı</h4>
+                                <span class="item-price">14 AZN</span>
+                            </div>
+                            <p class="item-description">Romaine kahı, qril toyuq, krutonlar və klassik Sezar sousu</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-content">
+                            <div class="item-header">
+                                <h4 class="item-name">Qreçka ilə tərəvəz salatı</h4>
+                                <span class="item-price">12 AZN</span>
+                            </div>
+                            <p class="item-description">Qreçka, təzə tərəvəzlər və zeytun yağı ilə</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-content">
+                            <div class="item-header">
+                                <h4 class="item-name">Qatıqla badımcan salatı</h4>
+                                <span class="item-price">10 AZN</span>
+                            </div>
+                            <p class="item-description">Qrildə bişirilmiş badımcan, sarımsaq və ev qatığı</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Desertlər -->
+            <div class="menu-category">
+                <div class="category-title">
+                    <i class="fas fa-ice-cream"></i>
+                    <h3>Desertlər</h3>
+                </div>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <div class="item-content">
+                            <div class="item-header">
+                                <h4 class="item-name">Şokoladlı lava kek</h4>
+                                <span class="item-price">10 AZN</span>
+                            </div>
+                            <p class="item-description">İsti şokolad lava kek və vanil dondurması</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-content">
+                            <div class="item-header">
+                                <h4 class="item-name">Çizkeyk (giləmeyvəli)</h4>
+                                <span class="item-price">9 AZN</span>
+                            </div>
+                            <p class="item-description">Kremli çizkeyk və təzə giləmeyvə sousu</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-content">
+                            <div class="item-header">
+                                <h4 class="item-name">Dondurma triosu</h4>
+                                <span class="item-price">8 AZN</span>
+                            </div>
+                            <p class="item-description">Üç müxtəlif dadda ev dondurması</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Page -->
+    <section id="about" class="page">
+        <div class="container">
+            <div class="section-title">
+                <h2>Haqqımızda</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Sambal Restoranı</h2>
+                    <p>2010-cu ildən bəri Bakının mərkəzində fəaliyyət göstərən Sambal Restoranı, ənənəvi Azərbaycan mətbəxi ilə müasir dadları uğurla birləşdirir. Məqsədimiz hər zövqə uyğun unudulmaz dad təcrübəsi yaratmaqdır.</p>
+                    <p>Restoranımızda istifadə etdiyimiz bütün məhsullar ən yüksək keyfiyyət standartlarına cavab verir və təzəliyinə görə seçilir. Peşəkar aşpaz komandamız hər bir yeməyi xüsusi diqqət və sevgi ilə hazırlayır.</p>
+                    <p>Zəngin menyumuz, rahat atmosferimiz və qonaqpərvər xidmətimizlə sizə lüks və rahatlıq hissi yaşatmaq üçün buradayıq.</p>
+                    <a href="#" class="btn" data-page="contact">Rezervasiya Edin</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Restoran interyeri">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Page -->
+    <section id="contact" class="page">
+        <div class="container">
+            <div class="section-title">
+                <h2>Əlaqə</h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Bizimlə Əlaqə</h3>
+                    <div class="contact-details">
+                        <p><i class="fas fa-map-marker-alt"></i> Nizami küçəsi 203, Bakı, Azərbaycan</p>
+                        <p><i class="fas fa-phone"></i> +994 12 345 67 89</p>
+                        <p><i class="fas fa-envelope"></i> info@sambalrestoran.az</p>
+                        <p><i class="fas fa-clock"></i> Hər gün 10:00 - 23:00</p>
+                    </div>
+                    <h3>Sosial Şəbəkələr</h3>
+                    <div class="social-links">
+                        <a href="#" style="color: var(--gold); margin-right: 15px; font-size: 1.5rem;"><i class="fab fa-facebook"></i></a>
+                        <a href="#" style="color: var(--gold); margin-right: 15px; font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
+                        <a href="#" style="color: var(--gold); margin-right: 15px; font-size: 1.5rem;"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3039.428490145579!2d49.85175657570004!3d40.37719495845014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d079756ba13%3A0xc20aa51a5f0b5e01!2sBaku%2C%20Azerbaijan!5e0!3m2!1sen!2s!4v1688398123456!5m2!1sen!2s" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Sambal Restoranı</div>
+                <ul class="footer-links">
+                    <li><a href="#" data-page="home">Ana səhifə</a></li>
+                    <li><a href="#" data-page="menu">Menyu</a></li>
+                    <li><a href="#" data-page="about">Haqqımızda</a></li>
+                    <li><a href="#" data-page="contact">Əlaqə</a></li>
+                </ul>
+                <p class="copyright">© 2023 Sambal Restoranı. Bütün hüquqlar qorunur.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Səhifə naviqasiyası
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-links a, .footer-links a, .btn');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetPage = this.getAttribute('data-page');
+                    
+                    // Bütün səhifələri gizlət
+                    document.querySelectorAll('.page').forEach(page => {
+                        page.classList.remove('active');
+                    });
+                    
+                    // Hədəf səhifəni göstər
+                    document.getElementById(targetPage).classList.add('active');
+                    
+                    // Navbar linklərini yenilə
+                    document.querySelectorAll('.nav-links a').forEach(navLink => {
+                        navLink.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
