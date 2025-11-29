@@ -236,87 +236,87 @@
             margin-top: 5px;
         }
         /* Desert bölməsi üçün xüsusi CSS */
-#desert .menu-items {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 30px;
-}
+        #desert .menu-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
 
-#desert .menu-item {
-    background-color: var(--dark-gray);
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s, box-shadow 0.3s;
-    display: flex;
-    flex-direction: column;
-}
+        #desert .menu-item {
+            background-color: var(--dark-gray);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
 
-#desert .menu-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-}
+        #desert .menu-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
 
-#desert .item-image {
-    height: 250px;
-    overflow: hidden;
-}
+        #desert .item-image {
+            height: 250px;
+            overflow: hidden;
+        }
 
-#desert .item-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
+        #desert .item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
 
-#desert .menu-item:hover .item-image img {
-    transform: scale(1.05);
-}
+        #desert .menu-item:hover .item-image img {
+            transform: scale(1.05);
+        }
 
-#desert .item-content {
-    padding: 20px;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-}
+        #desert .item-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
 
-#desert .item-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 10px;
-}
+        #desert .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
 
-#desert .item-name {
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: var(--white);
-}
+        #desert .item-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--white);
+        }
 
-#desert .item-price {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: var(--gold);
-    margin-left: 10px;
-    white-space: nowrap;
-}
+        #desert .item-price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--gold);
+            margin-left: 10px;
+            white-space: nowrap;
+        }
 
-#desert .item-description {
-    color: #CCCCCC;
-    font-size: 0.95rem;
-    margin-top: 5px;
-}
+        #desert .item-description {
+            color: #CCCCCC;
+            font-size: 0.95rem;
+            margin-top: 5px;
+        }
 
-/* Responsive dizayn */
-@media (max-width: 768px) {
-    #desert .menu-items {
-        grid-template-columns: 1fr;
-    }
-    
-    #desert .item-image {
-        height: 220px;
-    }
-}
+        /* Responsive dizayn */
+        @media (max-width: 768px) {
+            #desert .menu-items {
+                grid-template-columns: 1fr;
+            }
+            
+            #desert .item-image {
+                height: 220px;
+            }
+        }
         /* About Section */
         .about-content {
             display: flex;
