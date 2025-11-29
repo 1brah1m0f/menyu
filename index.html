@@ -712,56 +712,204 @@
         </div>
     </section>
     
-<section id="desert" class="page">
-    <div class="container">
-        <div class="section-title">
-            <h2>Desertlər</h2>
-        </div>
-        <div class="menu-items">
-            <!-- Şokoladlı lava kek -->
-            <div class="menu-item">
-                <div class="item-image">
-                    <img src="images/chocolate-lava-cake.jpg" alt="Şokoladlı lava kek">
-                </div>
-                <div class="item-content">
-                    <div class="item-header">
-                        <h4 class="item-name">Şokoladlı lava kek</h4>
-                        <span class="item-price">10 AZN</span>
-                    </div>
-                    <p class="item-description">İsti şokolad lava kek və vanil dondurması</p>
-                </div>
-            </div>
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desert Menyusu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f5f0;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px 0;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #8B4513;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right, #D2691E, #8B4513);
+        }
+        
+        .menu-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .menu-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .item-image {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .menu-item:hover .item-image img {
+            transform: scale(1.05);
+        }
+        
+        .item-content {
+            padding: 20px;
+        }
+        
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .item-name {
+            font-size: 1.4rem;
+            color: #8B4513;
+            font-weight: 600;
+        }
+        
+        .item-price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #D2691E;
+            background: #FFF8DC;
+            padding: 5px 12px;
+            border-radius: 20px;
+        }
+        
+        .item-description {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+        
+        /* Responsive dizayn */
+        @media (max-width: 768px) {
+            .menu-items {
+                grid-template-columns: 1fr;
+            }
             
-            <!-- Çizkeyk -->
-            <div class="menu-item">
-                <div class="item-image">
-                    <img src="images/cheesecake.jpg" alt="Çizkeyk">
-                </div>
-                <div class="item-content">
-                    <div class="item-header">
-                        <h4 class="item-name">Çizkeyk (giləmeyvəli)</h4>
-                        <span class="item-price">9 AZN</span>
-                    </div>
-                    <p class="item-description">Kremli çizkeyk və təzə giləmeyvə sousu</p>
-                </div>
-            </div>
+            .item-image {
+                height: 220px;
+            }
             
-            <!-- Dondurma triosu -->
-            <div class="menu-item">
-                <div class="item-image">
-                    <img src="images/ice-cream.jpg" alt="Dondurma triosu">
-                </div>
-                <div class="item-content">
-                    <div class="item-header">
-                        <h4 class="item-name">Dondurma triosu</h4>
-                        <span class="item-price">8 AZN</span>
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .item-image {
+                height: 200px;
+            }
+            
+            .item-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section id="desert" class="page">
+        <div class="container">
+            <div class="section-title">
+                <h2>Desertlər</h2>
+            </div>
+            <div class="menu-items">
+                <!-- Şokoladlı lava kek -->
+                <div class="menu-item">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1624353365286-3f8d62daad51?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Şokoladlı lava kek">
                     </div>
-                    <p class="item-description">Üç müxtəlif dadda ev dondurması</p>
+                    <div class="item-content">
+                        <div class="item-header">
+                            <h4 class="item-name">Şokoladlı lava kek</h4>
+                            <span class="item-price">10 AZN</span>
+                        </div>
+                        <p class="item-description">İsti şokolad lava kek və vanil dondurması</p>
+                    </div>
+                </div>
+                
+                <!-- Çizkeyk -->
+                <div class="menu-item">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1567306301408-9b74779a11af?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Çizkeyk">
+                    </div>
+                    <div class="item-content">
+                        <div class="item-header">
+                            <h4 class="item-name">Çizkeyk (giləmeyvəli)</h4>
+                            <span class="item-price">9 AZN</span>
+                        </div>
+                        <p class="item-description">Kremli çizkeyk və təzə giləmeyvə sousu</p>
+                    </div>
+                </div>
+                
+                <!-- Dondurma triosu -->
+                <div class="menu-item">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1560008581-09826d1de69e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1244&q=80" alt="Dondurma triosu">
+                    </div>
+                    <div class="item-content">
+                        <div class="item-header">
+                            <h4 class="item-name">Dondurma triosu</h4>
+                            <span class="item-price">8 AZN</span>
+                        </div>
+                        <p class="item-description">Üç müxtəlif dadda ev dondurması</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+</body>
+</html>
 
     <!-- About Page -->
     <section id="about" class="page">
