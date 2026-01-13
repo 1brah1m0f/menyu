@@ -34,8 +34,6 @@
             margin: 0 auto;
             padding: 0 20px;
         }
-
-        /* Navbar */
         .navbar {
             background-color: rgba(18, 18, 18, 0.95);
             padding: 20px 0;
@@ -104,7 +102,6 @@
             width: 100%;
         }
 
-        /* Page Content */
         .page {
             display: none;
             min-height: 70vh;
@@ -121,7 +118,6 @@
             to { opacity: 1; }
         }
 
-        /* Hero Section */
         .hero {
             height: 85vh;
             background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)), 
@@ -708,7 +704,6 @@
     </style>
 </head>
 <body>
-    <!-- Navbar -->
     <nav class="navbar">
         <div class="container nav-container">
             <a href="#" class="logo">
@@ -724,7 +719,6 @@
         </div>
     </nav>
 
-    <!-- Home Page -->
     <section id="home" class="page active">
         <div class="hero">
             <div class="hero-content">
@@ -737,14 +731,12 @@
         </div>
     </section>
 
-    <!-- Menu Page -->
     <section id="menu" class="page">
         <div class="container">
             <div class="section-title">
                 <h2>Menyumuz</h2>
             </div>
 
-            <!-- Desertlər -->
             <div class="menu-category">
                 <div class="category-title">
                     <i class="fas fa-crown"></i>
@@ -792,7 +784,6 @@
                 </div>
             </div>
 
-            <!-- İçkilər -->
             <div class="menu-category">
                 <div class="category-title">
                     <i class="fas fa-glass-cheers"></i>
@@ -838,7 +829,6 @@
                 </div>
             </div>
 
-            <!-- Çay (fincanda) -->
             <div class="menu-category">
                 <div class="category-title">
                     <i class="fas fa-mug-hot"></i>
@@ -956,7 +946,6 @@
                 </div>
             </div>
 
-            <!-- Çay (çaynikdə) -->
             <div class="menu-category">
                 <div class="category-title">
                     <i class="fas fa-teapot"></i>
@@ -1061,8 +1050,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Kofelər -->
             <div class="menu-category">
                 <div class="category-title">
                     <i class="fas fa-coffee"></i>
@@ -1134,7 +1121,6 @@
         </div>
     </section>
 
-    <!-- About Page -->
     <section id="about" class="page">
         <div class="container">
             <div class="section-title">
@@ -1157,7 +1143,6 @@
         </div>
     </section>
 
-    <!-- Contact Page -->
     <section id="contact" class="page">
         <div class="container">
             <div class="section-title">
@@ -1186,7 +1171,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -1206,7 +1190,6 @@
     </footer>
 
     <script>
-        // Səhifə naviqasiyası
         document.addEventListener('DOMContentLoaded', function() {
             const navLinks = document.querySelectorAll('.nav-links a, .footer-links a, .btn');
             
@@ -1215,21 +1198,18 @@
                     e.preventDefault();
                     const targetPage = this.getAttribute('data-page');
                     
-                    // Bütün səhifələri gizlət
                     document.querySelectorAll('.page').forEach(page => {
                         page.classList.remove('active');
                     });
                     
-                    // Hədəf səhifəni göstər
                     document.getElementById(targetPage).classList.add('active');
                     
-                    // Scroll to top
                     window.scrollTo({
                         top: 0,
                         behavior: 'smooth'
                     });
                     
-                    // Navbar linklərini yenilə
+
                     document.querySelectorAll('.nav-links a').forEach(navLink => {
                         navLink.classList.remove('active');
                     });
@@ -1237,7 +1217,6 @@
                 });
             });
             
-            // Animasiyaları başlat
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
